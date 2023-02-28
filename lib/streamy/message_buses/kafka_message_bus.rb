@@ -66,10 +66,10 @@ module Streamy
         def build_producer(kafka_config)
           WaterDrop::Producer.new do |producer_config|
             producer_config.logger = logger
-            producer_config.monitor = WaterDrop::Instrumentation::Monitor.new(
-              Streamy.notifications_bus,
-              Streamy.notifications_bus_namespace
-            )
+            # producer_config.monitor = WaterDrop::Instrumentation::Monitor.new(
+            #   Streamy.notifications_bus,
+            #   Streamy.notifications_bus_namespace
+            # )
             producer_config.kafka = kafka_config
           end
         end
